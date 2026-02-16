@@ -1,4 +1,5 @@
 import { BasicHeader } from "../components/ui/BasicHeader";
+import { Footer } from "../components/ui/Footer";
 import { HomePageMainCard } from "../components/ui/home/HomePageMainCard";
 import { HomePageSecondaryCard } from "../components/ui/home/HomePageSecondaryCard";
 import { HomePageTerciaryCard } from "../components/ui/home/HomePageTerciaryCard";
@@ -28,6 +29,9 @@ export const HomePage = () => {
             <HomePageTerciaryCard />
           </div>
         </div>
+      </div>
+      <div className="pt-25">
+        <Footer />
       </div>
     </div>
   );
