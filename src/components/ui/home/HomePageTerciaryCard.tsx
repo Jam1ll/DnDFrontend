@@ -11,11 +11,10 @@ export const HomePageTerciaryCard = () => {
           alt="tertiary_card"
         />
       </div>
-
       {/* TEXTO */}
       <div className="w-2/3 p-4 flex flex-col justify-center text-gray-300">
         <span className="text-lg font-medium tracking-tight text-white mb-2">
-          Opción Terciaria
+          LOREM IPSUM
         </span>
         <p className="text-light font-light text-gray-400 line-clamp-3">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices

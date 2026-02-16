@@ -22,21 +22,16 @@ export const LoginPage = () => {
 
         {/* Cuerpo de la tarjeta */}
         <div className="p-8 pt-2">
-          {/* Título de sección */}
-          <h2 className="text-xl text-gray-300 mb-6 font-normal flex items-center justify-center">
-            Iniciar sesión
-          </h2>
-
           {/* Formulario */}
           <div className="space-y-6">
             {/* Botón de Google */}
-            <div className="flex items-center justify-center bg-[#121212] p-5 rounded border border-gray-800">
+            <div className="flex items-center justify-center p-0">
               <GoogleLoginButton />
             </div>
 
             {/* Botón decorativo */}
-            <div className="opacity-50 text-center text-xs text-gray-500 mb-2">
-              — O usa tu cuenta de correo —
+            <div className="opacity-50 text-center text-xs text-gray-400 mb-2">
+              —— O usa tu cuenta de correo ——
             </div>
 
             <button
@@ -47,12 +42,9 @@ export const LoginPage = () => {
             </button>
           </div>
 
-          <div className="flex flex-col items-center justify-center mt-8 text-sm text-[#5f63b0] space-y-1">
-            <p className="hover:text-[#4a63c4] cursor-pointer transition-colors">
-              Registrarse
-            </p>
-            <p className="hover:text-[#4a63c4] cursor-pointer transition-colors text-gray-500">
-              ¿Ha olvidado su contraseña?
+          <div className="flex flex-col items-center justify-center mt-8 text-sm text-[#4b4b4b] space-y-1">
+            <p className="hover:text-[#5875e5] cursor-pointer transition-colors">
+              ¿No tienes una cuenta? Regístrate ahora
             </p>
           </div>
         </div>

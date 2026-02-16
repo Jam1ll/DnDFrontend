@@ -1,7 +1,9 @@
 import { GoogleLogin, type CredentialResponse } from "@react-oauth/google";
 import { googleLogin } from "../../api/googleAuth";
+import { useNavigate } from "react-router-dom";
 
 export const GoogleLoginButton = () => {
+  const navigate = useNavigate();
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
     if (credentialResponse.credential) {
       try {
@@ -14,6 +16,9 @@ export const GoogleLoginButton = () => {
 
         //guardar en localStorage
         localStorage.setItem("idToken", data.data.token);
+
+        //redireccionar al home page
+        navigate("/home");
       } catch (error) {
         console.log("Error sending token to backend: ", error);
       }

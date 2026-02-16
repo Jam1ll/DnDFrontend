@@ -13,7 +13,6 @@ export const HomePage = () => {
       <h1 className="text-2xl text-gray-300 tracking-tighter flex items-center pb-6 pl-20 pt-10 gap-1">
         INICIO
       </h1>
-
       {/* Grid layout para la posicion de las tarjetas */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
         {/* Columna izquierda (ocupara 2 espacios porque es la mas grande) */}

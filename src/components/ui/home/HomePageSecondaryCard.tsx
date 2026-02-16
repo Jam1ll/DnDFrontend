@@ -4,7 +4,7 @@ export const HomePageSecondaryCard = () => {
       {/* TEXTO */}
       <div className="p-4 flex flex-col justify-center items-center text-gray-300">
         <span className="text-lg font-medium tracking-tight text-white mb-2">
-          Subtítulo Secundario
+          LOREM IPSUM
         </span>
         <p className="text-light font-light text-gray-400">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices
