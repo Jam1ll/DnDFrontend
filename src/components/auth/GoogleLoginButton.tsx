@@ -16,6 +16,7 @@ export const GoogleLoginButton = () => {
 
         //guardar en localStorage
         localStorage.setItem("idToken", data.data.token);
+        localStorage.setItem("name", data.data.name);
 
         //redireccionar al home page
         navigate("/home");

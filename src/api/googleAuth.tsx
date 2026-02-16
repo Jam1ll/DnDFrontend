@@ -3,6 +3,7 @@ import { api, type ApiResponse } from "./axiosClient";
 //respuesta del endpoint en C#
 interface AuthResponse {
   id: string;
+  name: string;
   userName: string;
   email: string;
   token: string;

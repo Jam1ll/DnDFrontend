@@ -6,6 +6,10 @@ import { HomePageTerciaryCard } from "../components/ui/home/HomePageTerciaryCard
 import { MainHeader } from "../components/ui/MainHeader";
 
 export const HomePage = () => {
+  const idToken = localStorage.getItem("idToken");
+  const name = localStorage.getItem("name");
+  console.log("idToken: ", idToken);
+  console.log("name: ", name);
   return (
     <div className="min-h-screen bg-black font-sans">
       <MainHeader />
