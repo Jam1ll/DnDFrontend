@@ -3,6 +3,7 @@ import { LoginPage } from "../pages/LoginPage";
 import { HomePage } from "../pages/HomePage";
 import { CharactersPage } from "../pages/CharactersPage";
 import { CampaignsPage } from "../pages/CampaignsPage";
+import { ManualsPage } from "../pages/ManualsPage";
 
 export const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ export const AppRoutes = () => {
       <Route path="/home" element={<HomePage />} />
       <Route path="/characters" element={<CharactersPage />} />
       <Route path="/campaigns" element={<CampaignsPage />} />
+      <Route path="/manuals" element={<ManualsPage />} />
     </Routes>
   );
 };
