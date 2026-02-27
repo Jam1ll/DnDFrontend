@@ -27,7 +27,7 @@ export const ManualList = () => {
 
   return (
     <div className=" font-sans text-white">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-20 ml-20 mr-20">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-5 ml-20 mr-20 pb-30">
         {manuals.map((m) => (
           <ManualElement key={m.id} name={m.name} />
         ))}

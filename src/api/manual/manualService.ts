@@ -11,7 +11,7 @@ export interface ManualResponseDTO {
 }
 
 export const manualService = {
-  getAll: async (pageNumber = 1, pageSize = 10, name?: string) => {
+  getAll: async (pageNumber = 1, pageSize = 12, name?: string) => {
     const response = await api.get("Manual/All", {
       params: { pageNumber, pageSize, name },
     });
