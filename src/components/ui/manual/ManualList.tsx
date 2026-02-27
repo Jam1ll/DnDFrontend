@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import {
-  manualService,
-  type ManualResponseDTO,
-} from "../../../api/manual/manualService";
+import { manualService } from "../../../api/manual/manualService";
+import { type ManualResponseDTO } from "../../../api/manual/ManualResponseDTO";
 import { ManualElement } from "./ManualElement";
 
 export const ManualList = () => {
@@ -12,8 +10,20 @@ export const ManualList = () => {
   useEffect(() => {
     const fetchManuals = async () => {
       try {
-        const result = await manualService.getAll();
+        const result = await manualService.getAll({
+          pageNumber: 1,
+          pageSize: 10,
+          name: undefined, //guardar para un futuro filtrado
+          includesRaces: false,
+          includesSubRaces: false,
+          includesClasses: false,
+          includesSubClasses: false,
+          includesBackgrounds: false,
+          includesSpells: false,
+          includesFeats: false,
+        });
         setManuals(result.data);
+        console.log(result.data);
       } catch (error) {
         console.log("Error loading manuals", error);
       } finally {
@@ -23,13 +33,18 @@ export const ManualList = () => {
     fetchManuals(); //ejecutar funcion para poblar el listado
   }, []);
 
-  if (loading) return <h3>Tirando iniciativa para cargar los manuales...</h3>;
+  if (loading)
+    return (
+      <h3 className="font-sans text-white">
+        Tirando iniciativa para cargar los manuales...
+      </h3>
+    );
 
   return (
-    <div className=" font-sans text-white">
+    <div className="font-sans text-white">
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-5 ml-20 mr-20 pb-30">
         {manuals.map((m) => (
-          <ManualElement key={m.id} name={m.name} />
+          <ManualElement key={m.id} id={m.id} name={m.name} />
         ))}
       </ul>
     </div>

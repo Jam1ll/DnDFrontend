@@ -1,9 +1,11 @@
 import { useState, type SubmitEvent } from "react";
 import { Modal } from "../Modal";
 import { manualService } from "../../../api/manual/manualService";
+import { useNavigate } from "react-router-dom";
 
 export const AddManualFormButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -14,10 +16,11 @@ export const AddManualFormButton = () => {
 
     try {
       console.log("creating...");
-      await manualService.create({ name, description });
+      const data = await manualService.create({ name, description });
       setIsOpen(false);
-      console.log("created");
-      window.location.reload(); //F5 simple
+      console.log("created: ", data);
+      //obtener id y redirigir a los detalles
+      navigate(`/manual-details?q=${data.data}`);
     } catch (error) {
       console.error("Error al guardar el manual:", error);
     }
@@ -65,6 +68,7 @@ export const AddManualFormButton = () => {
               rows={4}
               className="border border-gray-400 text-sm rounded-md block w-full p-3.5 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="El mejor manual de D&D"
+              required
             ></textarea>
           </div>
           <div className="flex justify-end pt-4">

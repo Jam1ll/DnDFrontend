@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
 interface ManualElementProps {
+  id: string;
   name: string;
 }
 
-export const ManualElement = ({ name }: ManualElementProps) => {
+export const ManualElement = ({ id, name }: ManualElementProps) => {
   return (
     <li className="relative w-full transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 rounded-md">
-      <Link to="#">
+      <Link to={`/manual-details?q=${id}`}>
         <img
           className="h-64 w-full object-cover rounded-md"
           src="https://images6.alphacoders.com/601/601698.jpg"
