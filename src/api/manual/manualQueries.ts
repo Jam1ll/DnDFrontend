@@ -14,7 +14,9 @@ export interface GetAllManualsQuery {
 export interface GetManualByIdQuery {
   id: string;
   includesRaces: boolean;
+  includesSubRaces: boolean;
   includesClasses: boolean;
+  includesSubClasses: boolean;
   includesBackgrounds: boolean;
   includesSpells: boolean;
   includesFeats: boolean;

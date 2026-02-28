@@ -27,12 +27,12 @@ export interface ManualResponseDTO {
 
 export const manualService = {
   getAll: async (data: GetAllManualsQuery) => {
-    const response = await api.get("Manual/All", { params: { data } });
+    const response = await api.get("Manual/All", { params: data });
     return response.data;
   },
 
   getById: async (data: GetManualByIdQuery) => {
-    const response = await api.get(`Manual/${data.id}`, { params: { data } });
+    const response = await api.get(`Manual/${data.id}`, { params: data });
     return response.data;
   },
 
