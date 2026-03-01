@@ -1,29 +1,24 @@
-import { useState, type SubmitEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { Modal } from "../Modal";
-import { manualService } from "../../../api/manual/manualService";
-import { useNavigate } from "react-router-dom";
+import { useRace } from "../../../api/manual/race/raceService";
 
-export const AddManualFormButton = () => {
+export const AddRaceButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+  const createRace = useRace.useCreate();
 
-  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget); //extraer todos los elementos del form
+    const formData = new FormData(event.currentTarget);
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
 
-    try {
-      console.log("creating...");
-      const data = await manualService.create({ name, description });
-      setIsOpen(false);
-      console.log("created: ", data);
-      //obtener id y redirigir a los detalles
-      navigate(`/manual-details?q=${data.data}`);
-    } catch (error) {
-      console.error("Error al guardar el manual:", error);
-    }
+    createRace.mutate({
+      name: name,
+      description: description,
+      manualId: "",
+    });
+    setIsOpen(false);
   };
 
   return (
@@ -35,7 +30,7 @@ export const AddManualFormButton = () => {
       >
         <span className="text-xl font-bold text-blue-400">+</span>
 
-        <span className="text-sm tracking-wide font-medium">NUEVO MANUAL</span>
+        <span className="text-sm tracking-wide font-medium">NUEVA RAZA</span>
       </button>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
@@ -52,7 +47,7 @@ export const AddManualFormButton = () => {
               id="name"
               name="name"
               className="mb-5 border border-gray-400 text-sm rounded-md block w-full px-3 py-2.5 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Manual Necrético"
+              placeholder="Race Necrético"
               required
             />
 
@@ -67,9 +62,12 @@ export const AddManualFormButton = () => {
               name="description"
               rows={4}
               className="border border-gray-400 text-sm rounded-md block w-full p-3.5 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="El mejor manual de D&D"
+              placeholder="El mejor Race de D&D"
               required
             ></textarea>
+            <select>
+              {/**AGREGAR SELECT PARA ELEGIR A QUE MANUAL PERTENECE */}
+            </select>
           </div>
           <div className="flex justify-end pt-4">
             <button

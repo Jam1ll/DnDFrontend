@@ -1,28 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
 import {
-  manualService,
+  useManual,
   type ManualResponseDTO,
-} from "../../../api/manual/manualService";
+} from "../../../api/manual/manual/manualService";
 import { ManualElement } from "./ManualElement";
 
 export const ManualList = () => {
-  const { data: manuals = [], isLoading } = useQuery({
-    queryKey: ["manuals"],
-    queryFn: async () => {
-      const result = await manualService.getAll({
-        pageNumber: 1,
-        pageSize: 999,
-        name: undefined,
-        includesRaces: false,
-        includesClasses: false,
-        includesBackgrounds: false,
-        includesFeats: false,
-        includesSpells: false,
-        includesSubClasses: false,
-        includesSubRaces: false,
-      });
-      return result.data;
-    },
+  const { data: manuals = [], isLoading } = useManual.useGetAll({
+    pageNumber: 1,
+    pageSize: 999,
+    includesRaces: false,
+    includesSubRaces: false,
+    includesClasses: false,
+    includesSubClasses: false,
+    includesBackgrounds: false,
+    includesSpells: false,
+    includesFeats: false,
   });
 
   if (isLoading)

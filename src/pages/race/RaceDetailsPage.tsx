@@ -2,23 +2,18 @@ import { useSearchParams } from "react-router-dom";
 import { Footer } from "../../components/ui/footers/Footer";
 import { BasicHeader } from "../../components/ui/headers/BasicHeader";
 import { MainHeader } from "../../components/ui/headers/MainHeader";
-import { useManual } from "../../api/manual/manual/manualService";
-import { EditManualButton } from "../../components/ui/manual/EditManualButton";
-import { DeleteManualButton } from "../../components/ui/manual/DeleteManualButton";
+import { useRace } from "../../api/manual/race/raceService";
+import { EditRaceButton } from "../../components/ui/race/EditRaceButton";
+import { DeleteRaceButton } from "../../components/ui/race/DeleteRaceButton";
 
-export const ManualDetailsPage = () => {
+export const RaceDetailsPage = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("q") as string;
 
-  const { data: manualDetails, isLoading } = useManual.useGetById({
+  const { data: RaceDetails, isLoading } = useRace.useGetById({
     id: id,
-    includesRaces: true,
+    includesTraits: true,
     includesSubRaces: true,
-    includesClasses: true,
-    includesSubClasses: true,
-    includesBackgrounds: true,
-    includesSpells: true,
-    includesFeats: true,
   });
 
   return (
@@ -30,19 +25,20 @@ export const ManualDetailsPage = () => {
           <h1 className="text-2xl text-gray-300 tracking-tighter flex items-center justify-between gap-1">
             {isLoading
               ? "CARGANDO DETALLES..."
-              : `${manualDetails?.name?.toUpperCase()}`}
+              : `${RaceDetails?.name?.toUpperCase()}`}
           </h1>
           <div className="flex items-center gap-4">
-            <EditManualButton
-              name={manualDetails?.name ?? ""}
-              description={manualDetails?.description ?? ""}
-              id={manualDetails?.id ?? ""}
+            <EditRaceButton
+              name={RaceDetails?.name ?? ""}
+              description={RaceDetails?.description ?? ""}
+              id={RaceDetails?.id ?? ""}
+              manualId={""}
             />
-            <DeleteManualButton id={manualDetails?.id ?? ""} />
+            <DeleteRaceButton id={RaceDetails?.id ?? ""} />
           </div>
         </div>
 
-        {!isLoading && manualDetails && (
+        {!isLoading && RaceDetails && (
           <div className="px-10 lg:px-20 py-10 w-full flex justify-center">
             <div className="bg-black w-full max-w-7xl lg:flex shadow-2xl rounded-2xl overflow-hidden min-h-[60vh]">
               <div className="lg:w-1/2">
@@ -57,21 +53,16 @@ export const ManualDetailsPage = () => {
 
               <div className="py-16 px-10 lg:p-20 flex flex-col justify-center lg:w-1/2 z-10 bg-[#222]">
                 <h2 className="text-4xl lg:text-5xl text-gray-300 font-bold mb-6">
-                  {manualDetails.name}
+                  {RaceDetails.name}
                 </h2>
 
                 <p className="text-lg lg:text-xl text-gray-400 leading-relaxed grow">
-                  {manualDetails.description}
+                  {RaceDetails.description}
                 </p>
                 <hr className="w-110 h-0.5 mx-auto my-4 bg-gray-600 border-0 rounded-sm md:my-10" />
                 <ul className="text-gray-300 grid grid-rows-2 grid-flow-col">
-                  <li>{manualDetails.classes?.length ?? 0} clases</li>
-                  <li>{manualDetails.subClasses?.length ?? 0} subclases</li>
-                  <li>{manualDetails.races?.length ?? 0} razas</li>
-                  <li>{manualDetails.subRaces?.length ?? 0} subrazas</li>
-                  <li>{manualDetails.backgrounds?.length ?? 0} trasfondos</li>
-                  <li>{manualDetails.feats?.length ?? 0} dotes</li>
-                  <li>{manualDetails.spells?.length ?? 0} conjuros</li>
+                  <li>{RaceDetails.racialTraits?.length ?? 0} rasgos</li>
+                  <li>{RaceDetails.subRaces?.length ?? 0} subrazas</li>
                 </ul>
               </div>
             </div>

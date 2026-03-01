@@ -9,11 +9,3 @@ export const api = axios.create({
     Expires: "0",
   },
 });
-
-//wrapper de C#
-export interface ApiResponse<T> {
-  succeeded: boolean;
-  message: string;
-  errors: string[] | null;
-  data: T;
-}
