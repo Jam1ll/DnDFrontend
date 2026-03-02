@@ -2,10 +2,10 @@ export interface GetAllSubRacesQuery {
   name?: string;
   pageNumber: number;
   pageSize: number;
-  includesSubRacialTraits: boolean;
+  includesTraits: boolean;
 }
 
 export interface GetSubRaceByIdQuery {
   id: string;
-  includesSubRacialTraits: boolean;
+  includesTraits: boolean;
 }

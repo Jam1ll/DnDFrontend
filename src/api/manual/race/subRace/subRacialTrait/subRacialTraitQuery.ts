@@ -1,7 +1,7 @@
 export interface GetAllSubRacialTraitsQuery {
-  name?: string;
   pageNumber: number;
   pageSize: number;
+  name?: string;
 }
 
 export interface GetSubRacialTraitByIdQuery {

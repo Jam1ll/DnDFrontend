@@ -2,6 +2,7 @@ import { createGenericHooks } from "../../../hooks/genericHooks";
 import { createGenericService } from "../../genericService";
 import type { CreateClassCommand, UpdateClassCommand } from "./classCommands";
 import type { GetAllClassesQuery, GetClassByIdQuery } from "./classQueries";
+import type { SubClassResponseDTO } from "./subClass/subClassService";
 
 export interface ClassResponseDTO {
   id: string;
@@ -9,6 +10,8 @@ export interface ClassResponseDTO {
   description: string;
   hitPoints: string;
   multiClassRequirements: string;
+  classTraits: ClassTraitResponseDTO[];
+  subClasses: SubClassResponseDTO[];
 }
 
 export const classService = createGenericService<

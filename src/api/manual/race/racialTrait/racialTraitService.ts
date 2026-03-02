@@ -7,7 +7,7 @@ import type {
 import type {
   GetAllRacialTraitsQuery,
   GetRacialTraitByIdQuery,
-} from "./racialTraitQuery";
+} from "./racialTraitQueries";
 
 export interface RacialTraitResponseDTO {
   id: string;
