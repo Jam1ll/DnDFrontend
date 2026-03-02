@@ -1,5 +1,6 @@
 export interface GetAllSubRacesQuery {
   name?: string;
+  raceId?: string;
   pageNumber: number;
   pageSize: number;
   includesTraits: boolean;

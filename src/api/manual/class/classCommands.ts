@@ -1,4 +1,5 @@
 export interface CreateClassCommand {
+  manualId: string;
   name: string;
   description: string;
   hitPoints: string;
@@ -7,6 +8,7 @@ export interface CreateClassCommand {
 
 export interface UpdateClassCommand {
   id: string;
+  manualId: string;
   name: string;
   description: string;
   hitPoints: string;
