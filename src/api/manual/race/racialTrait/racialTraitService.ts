@@ -16,7 +16,7 @@ export interface RacialTraitResponseDTO {
   description: string;
 }
 
-export const raceService = createGenericService<
+export const racialTraitService = createGenericService<
   RacialTraitResponseDTO,
   GetAllRacialTraitsQuery,
   GetRacialTraitByIdQuery,
@@ -24,4 +24,7 @@ export const raceService = createGenericService<
   UpdateRacialTraitCommand
 >("RacialTrait");
 
-export const useRacialTrait = createGenericHooks("racialTraits", raceService);
+export const useRacialTrait = createGenericHooks(
+  "racialTraits",
+  racialTraitService,
+);
