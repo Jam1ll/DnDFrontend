@@ -1,12 +1,4 @@
-import { api } from "./axiosClient";
-
-//wrapper de C#
-export interface ApiResponse<T> {
-  succeeded: boolean;
-  message: string;
-  errors: string[] | null;
-  data: T;
-}
+import { api, type ApiResponse } from "./axiosClient";
 
 export const createGenericService = <
   TResponseDTO,

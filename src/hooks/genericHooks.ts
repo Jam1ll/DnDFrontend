@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
 
 export const createGenericHooks = <
   TResponseDTO,
@@ -70,6 +71,17 @@ export const createGenericHooks = <
         mutationFn: (id: string) => service.delete(id),
         onSuccess: () => {
           queryCient.invalidateQueries({ queryKey: [queryKeyBase] });
+        },
+        onError: (e) => {
+          if (axios.isAxiosError(e) && e.response) {
+            const messageBackend =
+              e.response.data?.message ||
+              e.response.data?.Message ||
+              "Ocurrió un error en el servidor.";
+            alert("ATENCIÓN: " + messageBackend);
+          } else {
+            alert("ERROR: No se pudo conectar con el servidor.");
+          }
         },
       });
     },

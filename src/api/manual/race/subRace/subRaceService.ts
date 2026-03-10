@@ -13,6 +13,7 @@ import type { SubRacialTraitResponseDTO } from "./subRacialTrait/subRacialTraitS
 export interface SubRaceResponseDTO {
   id: string;
   manualId: string;
+  raceId: string;
   name: string;
   description: string;
   subRacialTraits?: SubRacialTraitResponseDTO[];

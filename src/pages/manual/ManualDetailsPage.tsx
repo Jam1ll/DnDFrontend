@@ -3,8 +3,8 @@ import { Footer } from "../../components/ui/footers/Footer";
 import { BasicHeader } from "../../components/ui/headers/BasicHeader";
 import { MainHeader } from "../../components/ui/headers/MainHeader";
 import { useManual } from "../../api/manual/manual/manualService";
-import { EditManualButton } from "../../components/ui/manual/EditManualButton";
-import { DeleteManualButton } from "../../components/ui/manual/DeleteManualButton";
+import { EditManualButton } from "../../components/manual/EditManualButton";
+import { DeleteManualButton } from "../../components/manual/DeleteManualButton";
 
 export const ManualDetailsPage = () => {
   const [searchParams] = useSearchParams();

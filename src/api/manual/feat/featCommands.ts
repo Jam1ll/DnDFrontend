@@ -2,6 +2,7 @@ export interface CreateFeatCommand {
   manualId: string;
   name: string;
   description: string;
+  requisites: string;
 }
 
 export interface UpdateFeatCommand {
@@ -9,4 +10,5 @@ export interface UpdateFeatCommand {
   manualId: string;
   name: string;
   description: string;
+  requisites: string;
 }

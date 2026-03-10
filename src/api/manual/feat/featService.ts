@@ -8,6 +8,7 @@ export interface FeatResponseDTO {
   manualId: string;
   name: string;
   description: string;
+  requisites: string;
 }
 
 export const featService = createGenericService<
@@ -18,4 +19,4 @@ export const featService = createGenericService<
   UpdateFeatCommand
 >("Feat");
 
-export const useRacialTrait = createGenericHooks("feats", featService);
+export const useFeat = createGenericHooks("feats", featService);

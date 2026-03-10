@@ -12,6 +12,7 @@ export interface CreateSpellCommand {
 }
 
 export interface UpdateSpellCommand {
+  id: string;
   manualId: string;
   name: string;
   description: string;

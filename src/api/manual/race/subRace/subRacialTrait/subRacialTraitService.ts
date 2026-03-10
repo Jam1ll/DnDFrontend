@@ -24,7 +24,7 @@ export const subRacialTraitService = createGenericService<
   UpdateSubRacialTraitCommand
 >("SubRacialTrait");
 
-export const useRacialTrait = createGenericHooks(
+export const useSubRacialTrait = createGenericHooks(
   "subRacialTraits",
   subRacialTraitService,
 );

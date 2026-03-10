@@ -1,8 +1,8 @@
 import { Footer } from "../../components/ui/footers/Footer";
 import { BasicHeader } from "../../components/ui/headers/BasicHeader";
 import { MainHeader } from "../../components/ui/headers/MainHeader";
-import { AddRaceButton } from "../../components/ui/race/AddRaceButton";
-import { RaceList } from "../../components/ui/race/RaceList";
+import { AddRaceButton } from "../../components/race/buttons/AddRaceButton";
+import { RaceList } from "../../components/race/RaceList";
 
 export const RacesPage = () => {
   return (

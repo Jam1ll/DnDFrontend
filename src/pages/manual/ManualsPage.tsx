@@ -1,8 +1,8 @@
+import { AddManualButton } from "../../components/manual/AddManualButton";
+import { ManualList } from "../../components/manual/ManualList";
 import { Footer } from "../../components/ui/footers/Footer";
 import { BasicHeader } from "../../components/ui/headers/BasicHeader";
 import { MainHeader } from "../../components/ui/headers/MainHeader";
-import { AddManualButton } from "../../components/ui/manual/AddManualButton";
-import { ManualList } from "../../components/ui/manual/ManualList";
 
 export const ManualsPage = () => {
   return (

@@ -2,9 +2,11 @@ import { useSearchParams } from "react-router-dom";
 import { Footer } from "../../components/ui/footers/Footer";
 import { BasicHeader } from "../../components/ui/headers/BasicHeader";
 import { MainHeader } from "../../components/ui/headers/MainHeader";
+import { EditRaceButton } from "../../components/race/buttons/EditRaceButton";
+import { DeleteRaceButton } from "../../components/race/buttons/DeleteRaceButton";
+import { RacialTraitList } from "../../components/race/racialTraits/RacialTraitList";
+import { SubRaceList } from "../../components/race/subRace/SubRaceList";
 import { useRace } from "../../api/manual/race/raceService";
-import { EditRaceButton } from "../../components/ui/race/EditRaceButton";
-import { DeleteRaceButton } from "../../components/ui/race/DeleteRaceButton";
 
 export const RaceDetailsPage = () => {
   const [searchParams] = useSearchParams();
@@ -16,6 +18,7 @@ export const RaceDetailsPage = () => {
     includesSubRaces: true,
   });
 
+  console.log(RaceDetails);
   return (
     <div className="flex flex-col min-h-screen bg-black font-sans">
       <MainHeader />
@@ -32,14 +35,14 @@ export const RaceDetailsPage = () => {
               name={RaceDetails?.name ?? ""}
               description={RaceDetails?.description ?? ""}
               id={RaceDetails?.id ?? ""}
-              manualId={""}
+              manualId={RaceDetails?.manualId ?? ""}
             />
             <DeleteRaceButton id={RaceDetails?.id ?? ""} />
           </div>
         </div>
 
         {!isLoading && RaceDetails && (
-          <div className="px-10 lg:px-20 py-10 w-full flex justify-center">
+          <div className="px-10 lg:px-20 py-10 w-full flex justify-center flex-col">
             <div className="bg-black w-full max-w-7xl lg:flex shadow-2xl rounded-2xl overflow-hidden min-h-[60vh]">
               <div className="lg:w-1/2">
                 <div
@@ -66,6 +69,17 @@ export const RaceDetailsPage = () => {
                 </ul>
               </div>
             </div>
+            <RacialTraitList
+              racialTraits={RaceDetails.racialTraits}
+              manualId={RaceDetails.manualId}
+              raceId={RaceDetails.id}
+            />
+            <SubRaceList
+              SubRaces={RaceDetails.subRaces}
+              manualId={RaceDetails.manualId}
+              raceId={RaceDetails.id}
+              includesSubRacialTraits={false}
+            />
           </div>
         )}
       </main>

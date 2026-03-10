@@ -1,8 +1,8 @@
 import { BasicHeader } from "../components/ui/headers/BasicHeader";
 import { Footer } from "../components/ui/footers/Footer";
-import { HomePageMainCard } from "../components/ui/home/HomePageMainCard";
-import { HomePageSecondaryCard } from "../components/ui/home/HomePageSecondaryCard";
-import { HomePageTerciaryCard } from "../components/ui/home/HomePageTerciaryCard";
+import { HomePageMainCard } from "../components/home/HomePageMainCard";
+import { HomePageSecondaryCard } from "../components/home/HomePageSecondaryCard";
+import { HomePageTerciaryCard } from "../components/home/HomePageTerciaryCard";
 import { MainHeader } from "../components/ui/headers/MainHeader";
 
 export const HomePage = () => {

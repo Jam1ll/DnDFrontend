@@ -7,6 +7,11 @@ import { ManualsPage } from "../pages/manual/ManualsPage";
 import { ManualDetailsPage } from "../pages/manual/ManualDetailsPage";
 import { RaceDetailsPage } from "../pages/race/RaceDetailsPage";
 import { RacesPage } from "../pages/race/RacesPage";
+import { SubRaceDetailsPage } from "../pages/race/SubRaceDetailsPage";
+import { BackgroundDetailsPage } from "../pages/background/BackgroundDetailsPage";
+import { BackgroundsPage } from "../pages/background/BackgroundsPage";
+import { FeatsPage } from "../pages/feat/FeatsPage";
+import { SpellsPage } from "../pages/spell/SpellsPage";
 
 export const AppRoutes = () => {
   return (
@@ -20,6 +25,11 @@ export const AppRoutes = () => {
       <Route path="/manual-details" element={<ManualDetailsPage />} />
       <Route path="/races" element={<RacesPage />} />
       <Route path="/race-details" element={<RaceDetailsPage />} />
+      <Route path="/subrace-details" element={<SubRaceDetailsPage />} />
+      <Route path="/backgrounds" element={<BackgroundsPage />} />
+      <Route path="/background-details" element={<BackgroundDetailsPage />} />
+      <Route path="/feats" element={<FeatsPage />} />
+      <Route path="/spells" element={<SpellsPage />} />
     </Routes>
   );
 };
